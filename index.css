@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,800;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --overlay-color: #03a9f4;
+  --dark-color: #191919;
+}
+
+.landing {
+  right: 0;
+  overflow: hidden;
+  word-break: break-word;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--dark-color);
+  color: white;
+  z-index: 2;
+  transition: 0.5s;
+  position: relative;
+}
+
+.landing.active {
+  right: 300px;
+}
+
+.landing__header {
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing__logo {
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-toggle {
+  width: 60px;
+  height: 60px;
+  background: url("menu-24px.svg");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+  filter: invert(100%);
+}
+
+.menu-toggle.active {
+  background: url("close-24px.svg");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+}
+
+.landing__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.landing__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+  mix-blend-mode: overlay;
+}
+
+.landing__text {
+  width: 100%;
+  padding: 0 100px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 3;
+}
+
+.landing__text__title {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.landing__text__subtitle {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1em;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.landing__text__body {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px;
+}
+
+.landing__text__link {
+  display: inline-block;
+  font-size: 1rem;
+  background: #fff;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: var(--dark-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.landing__text__link:hover {
+  letter-spacing: 6px;
+}
+
+.landing__social {
+  padding: 0 100px;
+  z-index: 4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.landing__social__item {
+  list-style: none;
+}
+
+.landing__social__item__link {
+  display: inline-block;
+  filter: invert(1);
+  margin: 20px;
+  transform: scale(0.5);
+  transition: 0.5s;
+}
+
+.landing__social__item__link:hover {
+  transform: scale(0.5) translateY(-15px);
+}
+
+.landing__social__item__link__img {
+  width: 50px;
+  height: 50px;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__list {
+  position: relative;
+  list-style: none;
+}
+
+.menu__list__link {
+  text-decoration: none;
+  font-size: 24px;
+  color: #111;
+}
+
+.menu__list__link:hover {
+  color: var(--overlay-color);
+}
+
+@media (max-width: 798px) {
+  .landing__header,
+  .landing__text,
+  .landing__social {
+    padding: 40px;
+  }
+
+  .landing__text__title {
+    font-size: 3rem;
+  }
+
+  .landing__text__subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .menu-toggle.active {
+    position: fixed;
+    top: 3rem;
+    right: 125px;
+    filter: invert(0);
+    z-index: 5;
+  }
+}
+
+@media (max-width: 350px) {
+  .landing__header,
+  .landing__text,
+  .landing__social {
+    padding: 20px;
+  }
+
+  .landing__social {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .landing__text__title {
+    font-size: 2rem;
+  }
+
+  .landing__text__subtitle {
+    font-size: 1rem;
+  }
+
+  .landing__text__body {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .menu {
+    width: 100%;
+  }
+  .menu-toggle.active {
+    right: 40%;
+  }
+}
